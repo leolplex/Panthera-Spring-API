@@ -1,24 +1,24 @@
 package com.panthera.market.domain;
 
 public class Category {
-    private int ctegoryId;
-    private String ctegory;
+    private int categoryId;
+    private String category;
     private boolean active;
 
-    public int getCtegoryId() {
-        return ctegoryId;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCtegoryId(int ctegoryId) {
-        this.ctegoryId = ctegoryId;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public String getCtegory() {
-        return ctegory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCtegory(String ctegory) {
-        this.ctegory = ctegory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public boolean isActive() {
