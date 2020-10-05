@@ -2,7 +2,7 @@ package com.panthera.market.domain;
 
 public class Category {
     private int categoryId;
-    private String category;
+    private String categoryName;
     private boolean active;
 
     public int getCategoryId() {
@@ -13,12 +13,12 @@ public class Category {
         this.categoryId = categoryId;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 
     public boolean isActive() {

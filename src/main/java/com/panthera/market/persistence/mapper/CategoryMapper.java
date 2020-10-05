@@ -10,7 +10,7 @@ import org.mapstruct.Mapping;
 public interface CategoryMapper {
 
     @Mapping(source = "idCategoria", target = "categoryId")
-    @Mapping(source = "descripcion", target = "category")
+    @Mapping(source = "descripcion", target = "categoryName")
     @Mapping(source = "estado", target = "active")
     Category toCategory(Categoria categoria);
 
