@@ -56,17 +56,23 @@ jobs:
 
     steps:
         - checkout
-        - # run tests!
         - run: gradle test
 
   check_code_quality_sonar:
     docker:
       - image: circleci/openjdk:11-jdk
+    working_directory: ~/repo
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
+
     steps:
       - checkout
       - run:
           name: Analyze on SonarCloud
           command: gradle build sonarqube
+
 workflows:
   main:
     jobs:
