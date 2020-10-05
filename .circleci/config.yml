@@ -62,11 +62,11 @@ jobs:
   sonar:
     docker:
       - image: circleci/openjdk:11-jdk
-      steps:
-        - checkout
-        - run:
-            name: Analyze on SonarCloud
-            command: gradle build sonarqube
+    steps:
+      - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube
 workflows:
   main:
     jobs:
