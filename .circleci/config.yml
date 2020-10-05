@@ -59,7 +59,7 @@ jobs:
         - # run tests!
         - run: gradle test
 
-  sonar:
+  check_code_quality_sonar:
     docker:
       - image: circleci/openjdk:11-jdk
     steps:
