@@ -11,8 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class PantheraMarketApplicationTests {
 
     @Test
-    public void applicationContextTest() {
-        PantheraMarketApplication.main(new String[]{});
+    void contextLoads() {
     }
 
 }
