@@ -40,10 +40,6 @@ jobs:
 
       - run: gradle build
 
-      - run:
-          name: Analyze on SonarCloud
-          command: gradle build sonarqube
-
   test:
     docker:
       - image: circleci/openjdk:11-jdk
@@ -77,6 +73,10 @@ workflows:
   main:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+              - build
       - check_code_quality_sonar:
           context: SonarCloud
+          requires:
+            - build
