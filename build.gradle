@@ -1,12 +1,23 @@
 plugins {
 	id 'org.springframework.boot' version '2.3.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id "jacoco"
 	id 'java'
+	id "org.sonarqube" version "3.0"
 }
+
 
 group = 'com.panthera'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+sonarqube {
+	properties {
+		property "sonar.projectKey", "leolplex_Panthera-Spring-API"
+		property "sonar.organization", "leolplex"
+		property "sonar.host.url", "https://sonarcloud.io"
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -26,6 +37,14 @@ dependencies {
 	}
 }
 
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+	}
+}
+
 test {
 	useJUnitPlatform()
 }
+

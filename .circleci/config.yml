@@ -23,6 +23,9 @@ jobs:
 
     steps:
       - checkout
+      - run:
+          name: Analyze on SonarCloud
+          command: gradle build sonarqube"
 
       # Download and cache dependencies
       - restore_cache:
@@ -40,3 +43,9 @@ jobs:
 
       # run tests!
       - run: gradle test
+
+  workflows:
+    main:
+      jobs:
+        - build:
+            context: SonarCloud
