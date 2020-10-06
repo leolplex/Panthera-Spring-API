@@ -16,7 +16,6 @@ sonarqube {
 		property "sonar.projectKey", "leolplex_Panthera-Spring-API"
 		property "sonar.organization", "leolplex"
 		property "sonar.projectVersion", "1.0.0"
-		property "sonar.qualitygate.wait=true"
 		property "sonar.host.url", "https://sonarcloud.io"
 	}
 }
