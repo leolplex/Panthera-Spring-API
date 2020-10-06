@@ -1,4 +1,4 @@
-package com.panthera.market;
+package com.panthera.market.web.controller;
 
 import com.panthera.market.web.controller.PantheraMarketApplication;
 import org.junit.jupiter.api.Test;
