@@ -1,10 +1,27 @@
 package com.panthera.market.domain;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ProductTest {
+
+
+    @Test
+    public void InstanceProductDefaultValues() {
+        // Arrange & Act
+        Product tester = new Product();
+
+
+        // Assert
+        assertEquals(tester.getProductId(), 0, "getProductId must be 0");
+        assertNull(tester.getName(), "getName must be null");
+        assertEquals(tester.getCategoryId(), 0, "getCategoryId must be 0");
+        assertEquals(tester.getPrice(), 0.0d, "getPrice must be 0.0d");
+        assertEquals(tester.getStock(), 0, "getStock must be 0");
+        assertFalse(tester.isActive(), "isActive must be false");
+        assertNull(tester.getCategory(), "getCategory must be null");
+    }
 
     @Test
     public void getAndSetProductId() {
@@ -50,7 +67,6 @@ public class ProductTest {
     }
 
 
-
     @Test
     public void getAndSetPrice() {
         // Arrange
@@ -64,8 +80,6 @@ public class ProductTest {
         // Assert
         assertEquals(getPrice, price, "setPrice must be 200.15");
     }
-
-
 
 
     @Test
@@ -83,7 +97,6 @@ public class ProductTest {
     }
 
 
-
     @Test
     public void getAndSetActive() {
         // Arrange
@@ -97,7 +110,6 @@ public class ProductTest {
         // Assert
         assertEquals(getActive, active, "setActive must be true");
     }
-
 
 
     @Test
