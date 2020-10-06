@@ -54,7 +54,7 @@ jobs:
         - checkout
         - run: gradle test
 
-  check_code_quality_sonar:
+  code_quality_sonar:
     docker:
       - image: circleci/openjdk:11-jdk
     working_directory: ~/repo
@@ -76,7 +76,7 @@ workflows:
       - test:
           requires:
               - build
-      - check_code_quality_sonar:
+      - code_quality_sonar:
           context: SonarCloud
           requires:
             - build
