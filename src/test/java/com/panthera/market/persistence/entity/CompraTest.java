@@ -38,7 +38,7 @@ class CompraTest {
         final int getIdCompra = tester.getIdCompra();
 
         // Assert
-        assertEquals(getIdCompra, idCompra, "setIdCompra must be 100");
+        assertEquals(idCompra, getIdCompra, "setIdCompra must be 100");
     }
 
     @Test
@@ -52,7 +52,7 @@ class CompraTest {
         final String getIdCliente = tester.getIdCliente();
 
         // Assert
-        assertEquals(getIdCliente, idCliente, "setIdCliente must be 121451236");
+        assertEquals(idCliente, getIdCliente, "setIdCliente must be 121451236");
     }
 
     @Test
@@ -66,7 +66,7 @@ class CompraTest {
         final LocalDateTime getIdCliente = tester.getFecha();
 
         // Assert
-        assertEquals(getIdCliente, fecha, "setFecha must be LocalDateTime.now()");
+        assertEquals(fecha, getIdCliente, "setFecha must be LocalDateTime.now()");
     }
 
     @Test
@@ -80,7 +80,7 @@ class CompraTest {
         final String getMedioPago = tester.getMedioPago();
 
         // Assert
-        assertEquals(getMedioPago, medioPago, "setMedioPago must be Efectivo");
+        assertEquals(medioPago, getMedioPago, "setMedioPago must be Efectivo");
     }
 
     @Test
@@ -94,7 +94,7 @@ class CompraTest {
         final String getComentario = tester.getComentario();
 
         // Assert
-        assertEquals(getComentario, comentario, "setComentario must be My comment");
+        assertEquals(comentario, getComentario, "setComentario must be My comment");
     }
 
 
@@ -109,7 +109,7 @@ class CompraTest {
         final String getEstado = tester.getEstado();
 
         // Assert
-        assertEquals(getEstado, estado, "setComentario must be My state");
+        assertEquals(estado, getEstado, "setComentario must be My state");
     }
 
     @Test
@@ -123,7 +123,7 @@ class CompraTest {
         final Cliente getCliente = tester.getCliente();
 
         // Assert
-        assertEquals(getCliente, cliente, "setComentario must be new Cliente()");
+        assertEquals(cliente, getCliente, "setComentario must be new Cliente()");
     }
 
     @Test
@@ -137,6 +137,6 @@ class CompraTest {
         final List<ComprasProducto> getProductos = tester.getProductos();
 
         // Assert
-        assertEquals(getProductos, productos, "setComentario must be []");
+        assertEquals(productos, getProductos, "setComentario must be []");
     }
 }

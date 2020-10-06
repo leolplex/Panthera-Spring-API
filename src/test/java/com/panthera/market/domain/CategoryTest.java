@@ -4,23 +4,23 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
- class CategoryTest {
+class CategoryTest {
 
     @Test
-     void InstanceCategoryDefaultValues() {
+    void InstanceCategoryDefaultValues() {
         // Arrange & Act
         Category tester = new Category();
 
 
         // Assert
-        assertEquals(tester.getCategoryId(), 0, "getCategoryId must be 0");
+        assertEquals(0, tester.getCategoryId(), "getCategoryId must be 0");
         assertNull(tester.getCategoryName(), "getCategoryName must be null");
         assertFalse(tester.isActive(), "isActive must be false");
     }
 
 
     @Test
-     void getAndSetCategoryId() {
+    void getAndSetCategoryId() {
         // Arrange
         Category tester = new Category();
         final int categoryId = 5;
@@ -30,11 +30,11 @@ import static org.junit.jupiter.api.Assertions.*;
         final int getCategoryId = tester.getCategoryId();
 
         // Assert
-        assertEquals(getCategoryId, categoryId, "setCategoryId must be 5");
+        assertEquals(categoryId, getCategoryId, "setCategoryId must be 5");
     }
 
     @Test
-     void getAndSetCategoryName() {
+    void getAndSetCategoryName() {
         // Arrange
         Category tester = new Category();
         final String categoryName = "My Category";
@@ -44,11 +44,11 @@ import static org.junit.jupiter.api.Assertions.*;
         final String getCategoryName = tester.getCategoryName();
 
         // Assert
-        assertEquals(getCategoryName, categoryName, "setCategoryName must be My Category");
+        assertEquals(categoryName, getCategoryName, "setCategoryName must be My Category");
     }
 
     @Test
-     void getAndSetActive() {
+    void getAndSetActive() {
         // Arrange
         Category tester = new Category();
         final boolean active = true;
@@ -58,6 +58,6 @@ import static org.junit.jupiter.api.Assertions.*;
         final boolean getActive = tester.isActive();
 
         // Assert
-        assertEquals(getActive, active, "setCategoryName must be true");
+        assertEquals(active, getActive, "setCategoryName must be true");
     }
 }

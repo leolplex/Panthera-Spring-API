@@ -14,11 +14,11 @@ class ProductTest {
 
 
         // Assert
-        assertEquals(tester.getProductId(), 0, "getProductId must be 0");
+        assertEquals(0, tester.getProductId(), "getProductId must be 0");
         assertNull(tester.getName(), "getName must be null");
-        assertEquals(tester.getCategoryId(), 0, "getCategoryId must be 0");
-        assertEquals(tester.getPrice(), 0.0d, "getPrice must be 0.0d");
-        assertEquals(tester.getStock(), 0, "getStock must be 0");
+        assertEquals(0, tester.getCategoryId(), "getCategoryId must be 0");
+        assertEquals(0.0d, tester.getPrice(), 0.0d, "getPrice must be 0.0d");
+        assertEquals(0, tester.getStock(), "getStock must be 0");
         assertFalse(tester.isActive(), "isActive must be false");
         assertNull(tester.getCategory(), "getCategory must be null");
     }
@@ -34,7 +34,7 @@ class ProductTest {
         final int getProductId = tester.getProductId();
 
         // Assert
-        assertEquals(getProductId, productId, "setProductId must be 5");
+        assertEquals(productId, getProductId, "setProductId must be 5");
     }
 
     @Test
@@ -48,7 +48,7 @@ class ProductTest {
         final String getName = tester.getName();
 
         // Assert
-        assertEquals(getName, name, "setName must be My Name");
+        assertEquals(name, getName, "setName must be My Name");
     }
 
 
@@ -63,7 +63,7 @@ class ProductTest {
         final int getCategoryId = tester.getCategoryId();
 
         // Assert
-        assertEquals(getCategoryId, categoryId, "setCategoryId must be 150");
+        assertEquals(categoryId, getCategoryId, "setCategoryId must be 150");
     }
 
 
@@ -78,7 +78,7 @@ class ProductTest {
         final double getPrice = tester.getPrice();
 
         // Assert
-        assertEquals(getPrice, price, "setPrice must be 200.15");
+        assertEquals(price, getPrice, "setPrice must be 200.15");
     }
 
 
@@ -93,7 +93,7 @@ class ProductTest {
         final int getStock = tester.getStock();
 
         // Assert
-        assertEquals(getStock, stock, "setStock must be 6500");
+        assertEquals(stock, getStock, "setStock must be 6500");
     }
 
 
@@ -108,7 +108,7 @@ class ProductTest {
         final boolean getActive = tester.isActive();
 
         // Assert
-        assertEquals(getActive, active, "setActive must be true");
+        assertEquals(active, getActive, "setActive must be true");
     }
 
 
@@ -123,6 +123,6 @@ class ProductTest {
         final Category getCategory = tester.getCategory();
 
         // Assert
-        assertEquals(getCategory, category, "setCategory must be new Category()");
+        assertEquals(category, getCategory, "setCategory must be new Category()");
     }
 }

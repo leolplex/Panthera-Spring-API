@@ -36,7 +36,7 @@ class ClienteTest {
         final int getId = tester.getId();
 
         // Assert
-        assertEquals(getId, id, "setId must be 100");
+        assertEquals(id, getId, "setId must be 100");
     }
 
     @Test
@@ -50,7 +50,7 @@ class ClienteTest {
         final String getNombre = tester.getNombre();
 
         // Assert
-        assertEquals(getNombre, nombre, "setNombre must be My name");
+        assertEquals(nombre, getNombre, "setNombre must be My name");
     }
 
     @Test
@@ -64,7 +64,7 @@ class ClienteTest {
         final String getApellidos = tester.getApellidos();
 
         // Assert
-        assertEquals(getApellidos, apellidos, "setApellidos must be My lastname");
+        assertEquals(apellidos, getApellidos, "setApellidos must be My lastname");
     }
 
     @Test
@@ -78,7 +78,7 @@ class ClienteTest {
         final Long getCelular = tester.getCelular();
 
         // Assert
-        assertEquals(getCelular, celular, "setApellidos must be 1234_5678_9012_3456L");
+        assertEquals(celular, getCelular, "setApellidos must be 1234_5678_9012_3456L");
     }
 
     @Test
@@ -92,7 +92,7 @@ class ClienteTest {
         final String getDireccion = tester.getDireccion();
 
         // Assert
-        assertEquals(getDireccion, direccion, "setDireccion must be My address");
+        assertEquals(direccion, getDireccion, "setDireccion must be My address");
     }
 
     @Test
@@ -106,7 +106,7 @@ class ClienteTest {
         final String getCorreoElectronico = tester.getCorreoElectronico();
 
         // Assert
-        assertEquals(getCorreoElectronico, correoElectronico, "setCorreoElectronico must be myemail@email.com");
+        assertEquals(correoElectronico, getCorreoElectronico, "setCorreoElectronico must be myemail@email.com");
     }
 
     @Test
@@ -120,6 +120,6 @@ class ClienteTest {
         final List<Compra> getCompras = tester.getCompras();
 
         // Assert
-        assertEquals(getCompras, compras, "setCompras must be []");
+        assertEquals(compras, getCompras, "setCompras must be []");
     }
 }

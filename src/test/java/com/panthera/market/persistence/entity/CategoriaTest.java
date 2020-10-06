@@ -33,7 +33,7 @@ class CategoriaTest {
         final int getIdCategoria = tester.getIdCategoria();
 
         // Assert
-        assertEquals(getIdCategoria, idCategoria, "setIdCategoria must be 500");
+        assertEquals(idCategoria, getIdCategoria, "setIdCategoria must be 500");
     }
 
     @Test
@@ -47,7 +47,7 @@ class CategoriaTest {
         final String getDescripcion = tester.getDescripcion();
 
         // Assert
-        assertEquals(getDescripcion, descripcion, "setDescripcion must be My Category");
+        assertEquals(descripcion, getDescripcion, "setDescripcion must be My Category");
     }
 
     @Test
@@ -61,7 +61,7 @@ class CategoriaTest {
         final boolean getEstado = tester.getEstado();
 
         // Assert
-        assertEquals(getEstado, estado, "setEstado must be true");
+        assertEquals(estado, getEstado, "setEstado must be true");
     }
 
     @Test
@@ -75,6 +75,6 @@ class CategoriaTest {
         final List<Producto> getProductos = tester.getProductos();
 
         // Assert
-        assertEquals(getProductos, productos, "setProductos must be []");
+        assertEquals(productos, getProductos, "setProductos must be []");
     }
 }
