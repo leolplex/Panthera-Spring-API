@@ -8,10 +8,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class ClienteTest {
+class ClienteTest {
 
     @Test
-    public void InstanceClienteDefaultValues() {
+    void InstanceClienteDefaultValues() {
         // Arrange & Act
         Cliente tester = new Cliente();
 
@@ -19,14 +19,14 @@ public class ClienteTest {
         assertNull(tester.getId(), "getId must be null");
         assertNull(tester.getNombre(), "getNombre must be null");
         assertNull(tester.getApellidos(), "getApellidos must be null");
-        assertNull(tester.getCelular(),  "getCelular must be null");
+        assertNull(tester.getCelular(), "getCelular must be null");
         assertNull(tester.getDireccion(), "getDireccion must be null");
         assertNull(tester.getCorreoElectronico(), "getCorreoElectronico must be null");
         assertNull(tester.getCompras(), "getCompras must be null");
     }
 
     @Test
-    public void getAndSetId() {
+    void getAndSetId() {
         // Arrange
         Cliente tester = new Cliente();
         final int id = 100;
@@ -40,7 +40,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetNombre() {
+    void getAndSetNombre() {
         // Arrange
         Cliente tester = new Cliente();
         final String nombre = "My name";
@@ -54,7 +54,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetApellidos() {
+    void getAndSetApellidos() {
         // Arrange
         Cliente tester = new Cliente();
         final String apellidos = "My lastname";
@@ -68,7 +68,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetCelular() {
+    void getAndSetCelular() {
         // Arrange
         Cliente tester = new Cliente();
         final Long celular = 1234_5678_9012_3456L;
@@ -82,7 +82,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetDireccion() {
+    void getAndSetDireccion() {
         // Arrange
         Cliente tester = new Cliente();
         final String direccion = "My address";
@@ -96,7 +96,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetCorreoElectronico() {
+    void getAndSetCorreoElectronico() {
         // Arrange
         Cliente tester = new Cliente();
         final String correoElectronico = "myemail@email.com";
@@ -110,7 +110,7 @@ public class ClienteTest {
     }
 
     @Test
-    public void getAndSetCompras() {
+    void getAndSetCompras() {
         // Arrange
         Cliente tester = new Cliente();
         final List<Compra> compras = new ArrayList<>();

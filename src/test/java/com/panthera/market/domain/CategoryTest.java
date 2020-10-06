@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CategoryTest {
+ class CategoryTest {
 
     @Test
-    public void InstanceCategoryDefaultValues() {
+     void InstanceCategoryDefaultValues() {
         // Arrange & Act
         Category tester = new Category();
 
@@ -20,7 +20,7 @@ public class CategoryTest {
 
 
     @Test
-    public void getAndSetCategoryId() {
+     void getAndSetCategoryId() {
         // Arrange
         Category tester = new Category();
         final int categoryId = 5;
@@ -34,7 +34,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void getAndSetCategoryName() {
+     void getAndSetCategoryName() {
         // Arrange
         Category tester = new Category();
         final String categoryName = "My Category";
@@ -48,7 +48,7 @@ public class CategoryTest {
     }
 
     @Test
-    public void getAndSetActive() {
+     void getAndSetActive() {
         // Arrange
         Category tester = new Category();
         final boolean active = true;

@@ -8,10 +8,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class CategoriaTest {
+class CategoriaTest {
 
     @Test
-    public void InstanceCategoriaDefaultValues() {
+    void InstanceCategoriaDefaultValues() {
         // Arrange & Act
         Categoria tester = new Categoria();
 
@@ -23,7 +23,7 @@ public class CategoriaTest {
     }
 
     @Test
-    public void getAndSetIdCategoria() {
+    void getAndSetIdCategoria() {
         // Arrange
         Categoria tester = new Categoria();
         final int idCategoria = 500;
@@ -37,7 +37,7 @@ public class CategoriaTest {
     }
 
     @Test
-    public void getAndSetDescripcion() {
+    void getAndSetDescripcion() {
         // Arrange
         Categoria tester = new Categoria();
         final String descripcion = "My Category";
@@ -51,7 +51,7 @@ public class CategoriaTest {
     }
 
     @Test
-    public void getAndSetEstado() {
+    void getAndSetEstado() {
         // Arrange
         Categoria tester = new Categoria();
         final boolean estado = true;
@@ -65,7 +65,7 @@ public class CategoriaTest {
     }
 
     @Test
-    public void getAndSetProductos() {
+    void getAndSetProductos() {
         // Arrange
         Categoria tester = new Categoria();
         final List<Producto> productos = new ArrayList<>();

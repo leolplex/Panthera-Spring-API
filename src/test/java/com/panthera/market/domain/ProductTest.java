@@ -4,11 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ProductTest {
+class ProductTest {
 
 
     @Test
-    public void InstanceProductDefaultValues() {
+    void InstanceProductDefaultValues() {
         // Arrange & Act
         Product tester = new Product();
 
@@ -24,7 +24,7 @@ public class ProductTest {
     }
 
     @Test
-    public void getAndSetProductId() {
+    void getAndSetProductId() {
         // Arrange
         Product tester = new Product();
         final int productId = 5;
@@ -38,7 +38,7 @@ public class ProductTest {
     }
 
     @Test
-    public void getAndSetName() {
+    void getAndSetName() {
         // Arrange
         Product tester = new Product();
         final String name = "My Name";
@@ -53,7 +53,7 @@ public class ProductTest {
 
 
     @Test
-    public void getAndSetCategoryId() {
+    void getAndSetCategoryId() {
         // Arrange
         Product tester = new Product();
         final int categoryId = 150;
@@ -68,7 +68,7 @@ public class ProductTest {
 
 
     @Test
-    public void getAndSetPrice() {
+    void getAndSetPrice() {
         // Arrange
         Product tester = new Product();
         final double price = 200.15;
@@ -83,7 +83,7 @@ public class ProductTest {
 
 
     @Test
-    public void getAndSetStock() {
+    void getAndSetStock() {
         // Arrange
         Product tester = new Product();
         final int stock = 6500;
@@ -98,7 +98,7 @@ public class ProductTest {
 
 
     @Test
-    public void getAndSetActive() {
+    void getAndSetActive() {
         // Arrange
         Product tester = new Product();
         final boolean active = true;
@@ -113,7 +113,7 @@ public class ProductTest {
 
 
     @Test
-    public void getAndSetCategory() {
+    void getAndSetCategory() {
         // Arrange
         Product tester = new Product();
         final Category category = new Category();
