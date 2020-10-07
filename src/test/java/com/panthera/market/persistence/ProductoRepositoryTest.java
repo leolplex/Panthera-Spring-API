@@ -38,7 +38,6 @@ class ProductoRepositoryTest {
 
     @Test
     void TestGetByCategoryMethod() {
-
         // Act
         Optional<List<Product>> getByCategory = tester.getByCategory(10);
 
@@ -48,8 +47,6 @@ class ProductoRepositoryTest {
 
     @Test
     void TestGetScarseProductsMethod() {
-
-
         // Act
         Optional<List<Product>> getScarseProducts = tester.getScarseProducts(10);
 
@@ -59,8 +56,6 @@ class ProductoRepositoryTest {
 
     @Test
     void TestGetProductMethod() {
-
-
         // Act
         Optional<Product> getProduct = tester.getProduct(10);
 
@@ -70,8 +65,6 @@ class ProductoRepositoryTest {
 
     @Test
     void TestSaveMethod() {
-
-
         // Act
         Product save = tester.save(mock(Product.class));
 
@@ -81,11 +74,34 @@ class ProductoRepositoryTest {
 
     @Test
     void TestDeleteMethod() {
-
-
+        // Act
         tester.delete(15);
 
         // Act & Assert
         assertEquals(tester.getProduct(15), Optional.empty(), "tester.productoCrudRepository must  be tester.productoCrudRepository");
+    }
+
+    @Test
+    void GetAndSetProductoCrudRepository() {
+        // Arrange
+        ProductoCrudRepository productoCrudRepository = mock(ProductoCrudRepository.class);
+
+        // Act
+        tester.setProductoCrudRepository(productoCrudRepository);
+
+        // Act & Assert
+        assertEquals(productoCrudRepository, tester.getProductoCrudRepository(), "setProductoCrudRepository must  be mock(ProductoCrudRepository.class)");
+    }
+
+    @Test
+    void GetAndSetMapper() {
+        // Arrange
+        ProductMapper productMapper = mock(ProductMapper.class);
+
+        // Act
+        tester.setMapper(productMapper);
+
+        // Act & Assert
+        assertEquals(productMapper, tester.getMapper(), "setMapper must  be mock(ProductMapper.class)");
     }
 }
