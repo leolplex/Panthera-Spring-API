@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public class ProductoRepository implements ProductRepository {
 
-    private ProductoCrudRepository productoCrudRepository;
-    private ProductMapper mapper;
+    public ProductoCrudRepository productoCrudRepository;
+    public ProductMapper mapper;
 
     @Override
     public List<Product> getAll() {
