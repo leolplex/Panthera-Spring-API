@@ -105,6 +105,6 @@ public class ProductoRepositoryTest {
         tester.delete(15);
 
         // Act & Assert
-        assertEquals(tester.productoCrudRepository, tester.productoCrudRepository, "tester.productoCrudRepository must  be tester.productoCrudRepository");
+        assertEquals(tester.getProduct(15), Optional.empty(), "tester.productoCrudRepository must  be tester.productoCrudRepository");
     }
 }
