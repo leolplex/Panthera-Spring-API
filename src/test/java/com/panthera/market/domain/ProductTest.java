@@ -1,18 +1,22 @@
 package com.panthera.market.domain;
 
+import com.panthera.market.persistence.entity.Categoria;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductTest {
+    Product tester;
 
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Product();
+    }
 
     @Test
     void InstanceProductDefaultValues() {
-        // Arrange & Act
-        Product tester = new Product();
-
-
         // Assert
         assertEquals(0, tester.getProductId(), "getProductId must be 0");
         assertNull(tester.getName(), "getName must be null");
@@ -26,7 +30,6 @@ class ProductTest {
     @Test
     void getAndSetProductId() {
         // Arrange
-        Product tester = new Product();
         final int productId = 5;
 
         //Act
@@ -40,7 +43,6 @@ class ProductTest {
     @Test
     void getAndSetName() {
         // Arrange
-        Product tester = new Product();
         final String name = "My Name";
 
         //Act
@@ -55,7 +57,6 @@ class ProductTest {
     @Test
     void getAndSetCategoryId() {
         // Arrange
-        Product tester = new Product();
         final int categoryId = 150;
 
         //Act
@@ -70,7 +71,6 @@ class ProductTest {
     @Test
     void getAndSetPrice() {
         // Arrange
-        Product tester = new Product();
         final double price = 200.15;
 
         //Act
@@ -85,7 +85,6 @@ class ProductTest {
     @Test
     void getAndSetStock() {
         // Arrange
-        Product tester = new Product();
         final int stock = 6500;
 
         //Act
@@ -100,7 +99,6 @@ class ProductTest {
     @Test
     void getAndSetActive() {
         // Arrange
-        Product tester = new Product();
         final boolean active = true;
 
         //Act
@@ -115,7 +113,6 @@ class ProductTest {
     @Test
     void getAndSetCategory() {
         // Arrange
-        Product tester = new Product();
         final Category category = new Category();
 
         //Act

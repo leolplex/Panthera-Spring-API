@@ -1,5 +1,6 @@
 package com.panthera.market.persistence.entity;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -10,11 +11,16 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class ClienteTest {
 
+    Cliente tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Cliente();
+    }
+
     @Test
     void InstanceClienteDefaultValues() {
-        // Arrange & Act
-        Cliente tester = new Cliente();
-
         // Assert
         assertNull(tester.getId(), "getId must be null");
         assertNull(tester.getNombre(), "getNombre must be null");
@@ -42,7 +48,6 @@ class ClienteTest {
     @Test
     void getAndSetNombre() {
         // Arrange
-        Cliente tester = new Cliente();
         final String nombre = "My name";
 
         //Act
@@ -56,7 +61,6 @@ class ClienteTest {
     @Test
     void getAndSetApellidos() {
         // Arrange
-        Cliente tester = new Cliente();
         final String apellidos = "My lastname";
 
         //Act
@@ -70,7 +74,6 @@ class ClienteTest {
     @Test
     void getAndSetCelular() {
         // Arrange
-        Cliente tester = new Cliente();
         final Long celular = 1234_5678_9012_3456L;
 
         //Act
@@ -84,7 +87,6 @@ class ClienteTest {
     @Test
     void getAndSetDireccion() {
         // Arrange
-        Cliente tester = new Cliente();
         final String direccion = "My address";
 
         //Act
@@ -98,7 +100,6 @@ class ClienteTest {
     @Test
     void getAndSetCorreoElectronico() {
         // Arrange
-        Cliente tester = new Cliente();
         final String correoElectronico = "myemail@email.com";
 
         //Act
@@ -112,7 +113,6 @@ class ClienteTest {
     @Test
     void getAndSetCompras() {
         // Arrange
-        Cliente tester = new Cliente();
         final List<Compra> compras = new ArrayList<>();
 
         //Act

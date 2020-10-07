@@ -1,6 +1,7 @@
 package com.panthera.market.persistence.entity;
 
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,12 +10,16 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CategoriaTest {
+    Categoria tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Categoria();
+    }
 
     @Test
     void InstanceCategoriaDefaultValues() {
-        // Arrange & Act
-        Categoria tester = new Categoria();
-
         // Assert
         assertNull(tester.getIdCategoria(), "getIdCategoria must be null");
         assertNull(tester.getDescripcion(), "getDescripcion must be null");
@@ -25,7 +30,6 @@ class CategoriaTest {
     @Test
     void getAndSetIdCategoria() {
         // Arrange
-        Categoria tester = new Categoria();
         final int idCategoria = 500;
 
         //Act
@@ -39,7 +43,6 @@ class CategoriaTest {
     @Test
     void getAndSetDescripcion() {
         // Arrange
-        Categoria tester = new Categoria();
         final String descripcion = "My Category";
 
         //Act
@@ -53,7 +56,6 @@ class CategoriaTest {
     @Test
     void getAndSetEstado() {
         // Arrange
-        Categoria tester = new Categoria();
         final boolean estado = true;
 
         //Act
@@ -67,7 +69,6 @@ class CategoriaTest {
     @Test
     void getAndSetProductos() {
         // Arrange
-        Categoria tester = new Categoria();
         final List<Producto> productos = new ArrayList<>();
 
         //Act

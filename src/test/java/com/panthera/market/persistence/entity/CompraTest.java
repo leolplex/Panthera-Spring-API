@@ -1,5 +1,6 @@
 package com.panthera.market.persistence.entity;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -11,10 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 class CompraTest {
 
+    Compra tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Compra();
+    }
+
     @Test
     void InstanceCompraDefaultValues() {
-        // Arrange & Act
-        Compra tester = new Compra();
+
 
         // Assert
         assertNull(tester.getIdCompra(), "getIdCompra must be null");
@@ -30,7 +38,6 @@ class CompraTest {
     @Test
     void getAndSetIdCompra() {
         // Arrange
-        Compra tester = new Compra();
         final int idCompra = 100;
 
         //Act
@@ -44,7 +51,6 @@ class CompraTest {
     @Test
     void getAndSetIdCliente() {
         // Arrange
-        Compra tester = new Compra();
         final String idCliente = "121451236";
 
         //Act
@@ -58,7 +64,6 @@ class CompraTest {
     @Test
     void getAndSetFecha() {
         // Arrange
-        Compra tester = new Compra();
         final LocalDateTime fecha = LocalDateTime.now();
 
         //Act
@@ -72,7 +77,6 @@ class CompraTest {
     @Test
     void getAndSetMedioPago() {
         // Arrange
-        Compra tester = new Compra();
         final String medioPago = "Efectivo";
 
         //Act
@@ -86,7 +90,6 @@ class CompraTest {
     @Test
     void getAndSetComentario() {
         // Arrange
-        Compra tester = new Compra();
         final String comentario = "My comment";
 
         //Act
@@ -101,7 +104,6 @@ class CompraTest {
     @Test
     void getAndSetEstado() {
         // Arrange
-        Compra tester = new Compra();
         final String estado = "My state";
 
         //Act
@@ -115,7 +117,6 @@ class CompraTest {
     @Test
     void getAndSetCliente() {
         // Arrange
-        Compra tester = new Compra();
         final Cliente cliente = new Cliente();
 
         //Act
@@ -129,7 +130,6 @@ class CompraTest {
     @Test
     void getAndSetProductos() {
         // Arrange
-        Compra tester = new Compra();
         final List<ComprasProducto> productos = new ArrayList<>();
 
         //Act

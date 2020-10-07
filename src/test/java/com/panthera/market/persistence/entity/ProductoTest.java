@@ -1,15 +1,27 @@
 package com.panthera.market.persistence.entity;
+
+import com.panthera.market.persistence.ProductoRepository;
+import com.panthera.market.persistence.crud.ProductoCrudRepository;
+import com.panthera.market.persistence.mapper.ProductMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.mockito.Mockito.mock;
 
-public class ProductoTest {
+class ProductoTest {
+    Producto tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Producto();
+    }
+
 
     @Test
     void InstanceProductoDefaultValues() {
-        // Arrange & Act
-        Producto tester = new Producto();
 
         // Assert
         assertNull(tester.getIdProducto(), "getId must be null");
@@ -25,7 +37,6 @@ public class ProductoTest {
     @Test
     void getAndSetIdProducto() {
         // Arrange
-        Producto tester = new Producto();
         final int idProducto = 100;
 
         //Act
@@ -39,7 +50,6 @@ public class ProductoTest {
     @Test
     void getAndSetNombre() {
         // Arrange
-        Producto tester = new Producto();
         final String nombre = "my name";
 
         //Act
@@ -53,7 +63,6 @@ public class ProductoTest {
     @Test
     void getAndSetIdCategoria() {
         // Arrange
-        Producto tester = new Producto();
         final Categoria idCategoria = new Categoria();
 
         //Act
@@ -68,7 +77,6 @@ public class ProductoTest {
     @Test
     void getAndSetCodigoBarras() {
         // Arrange
-        Producto tester = new Producto();
         final String codigoBarras = "23132sda2asd131as23d";
 
         //Act
@@ -82,7 +90,6 @@ public class ProductoTest {
     @Test
     void getAndSetPrecioVenta() {
         // Arrange
-        Producto tester = new Producto();
         final Double precioVenta = 15213.2562;
 
         //Act
@@ -96,7 +103,6 @@ public class ProductoTest {
     @Test
     void getAndSetCantidadStock() {
         // Arrange
-        Producto tester = new Producto();
         final int cantidadStock = 2562;
 
         //Act
@@ -110,7 +116,6 @@ public class ProductoTest {
     @Test
     void getAndSetEstado() {
         // Arrange
-        Producto tester = new Producto();
         final boolean estado = true;
 
         //Act
@@ -124,7 +129,6 @@ public class ProductoTest {
     @Test
     void getAndSetCategoria() {
         // Arrange
-        Producto tester = new Producto();
         final Categoria categoria = new Categoria();
 
         //Act

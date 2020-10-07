@@ -1,10 +1,11 @@
 package com.panthera.market.persistence;
 
-import com.panthera.market.domain.Category;
+
 import com.panthera.market.domain.Product;
 import com.panthera.market.persistence.crud.ProductoCrudRepository;
 import com.panthera.market.persistence.mapper.ProductMapper;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,17 +17,18 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.mock;
 
 
-public class ProductoRepositoryTest {
+class ProductoRepositoryTest {
+    ProductoRepository tester;
+
+    @BeforeEach
+    void initEach() {
+        tester = new ProductoRepository();
+        tester.setMapper(mock(ProductMapper.class));
+        tester.setProductoCrudRepository(mock(ProductoCrudRepository.class));
+    }
 
     @Test
     void TestGetAllMethod() {
-
-
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
-
         // Act
         List<Product> getAll = tester.getAll();
 
@@ -36,11 +38,6 @@ public class ProductoRepositoryTest {
 
     @Test
     void TestGetByCategoryMethod() {
-
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
 
         // Act
         Optional<List<Product>> getByCategory = tester.getByCategory(10);
@@ -52,10 +49,6 @@ public class ProductoRepositoryTest {
     @Test
     void TestGetScarseProductsMethod() {
 
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
 
         // Act
         Optional<List<Product>> getScarseProducts = tester.getScarseProducts(10);
@@ -67,10 +60,6 @@ public class ProductoRepositoryTest {
     @Test
     void TestGetProductMethod() {
 
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
 
         // Act
         Optional<Product> getProduct = tester.getProduct(10);
@@ -82,10 +71,6 @@ public class ProductoRepositoryTest {
     @Test
     void TestSaveMethod() {
 
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
 
         // Act
         Product save = tester.save(mock(Product.class));
@@ -97,10 +82,6 @@ public class ProductoRepositoryTest {
     @Test
     void TestDeleteMethod() {
 
-        // Arrange
-        ProductoRepository tester = new ProductoRepository();
-        tester.mapper = mock(ProductMapper.class);
-        tester.productoCrudRepository = mock(ProductoCrudRepository.class);
 
         tester.delete(15);
 

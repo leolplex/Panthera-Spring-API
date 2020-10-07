@@ -1,16 +1,22 @@
 package com.panthera.market.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CategoryTest {
 
+    Category tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new Category();
+    }
+
     @Test
     void InstanceCategoryDefaultValues() {
-        // Arrange & Act
-        Category tester = new Category();
-
 
         // Assert
         assertEquals(0, tester.getCategoryId(), "getCategoryId must be 0");
@@ -22,7 +28,6 @@ class CategoryTest {
     @Test
     void getAndSetCategoryId() {
         // Arrange
-        Category tester = new Category();
         final int categoryId = 5;
 
         //Act
@@ -36,7 +41,6 @@ class CategoryTest {
     @Test
     void getAndSetCategoryName() {
         // Arrange
-        Category tester = new Category();
         final String categoryName = "My Category";
 
         //Act
@@ -50,7 +54,6 @@ class CategoryTest {
     @Test
     void getAndSetActive() {
         // Arrange
-        Category tester = new Category();
         final boolean active = true;
 
         //Act

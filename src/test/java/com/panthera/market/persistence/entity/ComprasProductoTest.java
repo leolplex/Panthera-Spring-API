@@ -1,17 +1,23 @@
 package com.panthera.market.persistence.entity;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class ComprasProductoTest {
+class ComprasProductoTest {
+    ComprasProducto tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new ComprasProducto();
+    }
+
 
     @Test
     void InstanceComprasProductoDefaultValues() {
-        // Arrange & Act
-        ComprasProducto tester = new ComprasProducto();
-
         // Assert
         assertNull(tester.getId(), "getId must be null");
         assertNull(tester.getCantidad(), "getCantidad must be null");
@@ -38,7 +44,6 @@ public class ComprasProductoTest {
     @Test
     void getAndSetCantidad() {
         // Arrange
-        ComprasProducto tester = new ComprasProducto();
         final int cantidad = 150;
 
         //Act
@@ -52,7 +57,6 @@ public class ComprasProductoTest {
     @Test
     void getAndSetTotal() {
         // Arrange
-        ComprasProducto tester = new ComprasProducto();
         final double total = 150.30;
 
         //Act
@@ -66,7 +70,6 @@ public class ComprasProductoTest {
     @Test
     void getAndSetEstado() {
         // Arrange
-        ComprasProducto tester = new ComprasProducto();
         final boolean estado = true;
 
         //Act
@@ -80,7 +83,6 @@ public class ComprasProductoTest {
     @Test
     void getAndSetCompra() {
         // Arrange
-        ComprasProducto tester = new ComprasProducto();
         final Compra compra = new Compra();
 
         //Act
@@ -94,7 +96,6 @@ public class ComprasProductoTest {
     @Test
     void getAndSetProducto() {
         // Arrange
-        ComprasProducto tester = new ComprasProducto();
         final Producto producto = new Producto();
 
         //Act

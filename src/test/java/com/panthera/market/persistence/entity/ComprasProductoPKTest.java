@@ -1,17 +1,23 @@
 package com.panthera.market.persistence.entity;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-public class ComprasProductoPKTest {
+class ComprasProductoPKTest {
+    ComprasProductoPK tester;
+
+    @BeforeEach
+    void initEach() {
+        // Arrange
+        tester = new ComprasProductoPK();
+    }
+
 
     @Test
     void InstanceComprasProductoPKDefaultValues() {
-        // Arrange & Act
-        ComprasProductoPK tester = new ComprasProductoPK();
-
         // Assert
         assertNull(tester.getIdCompra(), "getId must be null");
         assertNull(tester.getIdProducto(), "getCantidad must be null");
@@ -20,7 +26,6 @@ public class ComprasProductoPKTest {
     @Test
     void getAndSetIdCompra() {
         // Arrange
-        ComprasProductoPK tester = new ComprasProductoPK();
         final int idCompra = 198;
 
         //Act
@@ -34,7 +39,6 @@ public class ComprasProductoPKTest {
     @Test
     void getAndSetIdProducto() {
         // Arrange
-        ComprasProductoPK tester = new ComprasProductoPK();
         final int idProducto = 200;
 
         //Act
