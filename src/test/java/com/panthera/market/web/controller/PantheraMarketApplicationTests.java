@@ -14,8 +14,8 @@ class PantheraMarketApplicationTests {
 
     @Test
     void contextLoads() {
-        String[] args = {};
-        PantheraMarketApplication.main(args);
+//        String[] args = {};
+//        PantheraMarketApplication.main(args);
     }
 
 }
