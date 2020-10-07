@@ -63,14 +63,14 @@ class ProductoTest {
     @Test
     void getAndSetIdCategoria() {
         // Arrange
-        final Categoria idCategoria = new Categoria();
+        final int idCategoria = 652;
 
         //Act
-        tester.setCategoria(idCategoria);
-        final Categoria getCategoria = tester.getCategoria();
+        tester.setIdCategoria(idCategoria);
+        final int getIdCategoria = tester.getIdCategoria();
 
         // Assert
-        assertEquals(idCategoria, getCategoria, "setCategoria must be new Categoria()");
+        assertEquals(idCategoria, getIdCategoria, "setIdCategoria must be 652");
     }
 
 
