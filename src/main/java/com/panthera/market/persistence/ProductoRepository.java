@@ -19,8 +19,6 @@ public class ProductoRepository implements ProductRepository {
     @Autowired
     private ProductMapper mapper;
 
-    ProductoRepository() {
-    }
 
     ProductoRepository(ProductoCrudRepository productoCrudRepository, ProductMapper mapper) {
         this.productoCrudRepository = productoCrudRepository;
