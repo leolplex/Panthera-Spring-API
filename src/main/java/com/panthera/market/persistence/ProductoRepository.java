@@ -19,6 +19,13 @@ public class ProductoRepository implements ProductRepository {
     @Autowired
     private ProductMapper mapper;
 
+    ProductoRepository() {
+    }
+
+    ProductoRepository(ProductoCrudRepository productoCrudRepository, ProductMapper mapper) {
+        this.productoCrudRepository = productoCrudRepository;
+        this.mapper = mapper;
+    }
 
     @Override
     public List<Product> getAll() {

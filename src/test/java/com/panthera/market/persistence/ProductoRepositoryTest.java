@@ -3,8 +3,14 @@ package com.panthera.market.persistence;
 
 import com.panthera.market.domain.Product;
 
+import com.panthera.market.persistence.crud.ProductoCrudRepository;
+import com.panthera.market.persistence.mapper.ProductMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +22,14 @@ import static org.mockito.Mockito.mock;
 
 
 class ProductoRepositoryTest {
-
-
     ProductoRepository tester;
 
     @BeforeEach
     void initEach() {
-        tester = new ProductoRepository();
+
+        ProductoCrudRepository productoCrudRepository = Mockito.mock(ProductoCrudRepository.class);
+        ProductMapper mapper = Mockito.mock(ProductMapper.class);
+        tester = new ProductoRepository(productoCrudRepository, mapper);
     }
 
     @Test
