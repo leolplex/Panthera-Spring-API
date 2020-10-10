@@ -2,8 +2,6 @@ package com.panthera.market.persistence;
 
 
 import com.panthera.market.domain.Product;
-import com.panthera.market.persistence.crud.ProductoCrudRepository;
-import com.panthera.market.persistence.mapper.ProductMapper;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,13 +16,13 @@ import static org.mockito.Mockito.mock;
 
 
 class ProductoRepositoryTest {
+
+
     ProductoRepository tester;
 
     @BeforeEach
     void initEach() {
         tester = new ProductoRepository();
-        tester.setMapper(mock(ProductMapper.class));
-        tester.setProductoCrudRepository(mock(ProductoCrudRepository.class));
     }
 
     @Test
@@ -81,27 +79,5 @@ class ProductoRepositoryTest {
         assertEquals(tester.getProduct(15), Optional.empty(), "tester.productoCrudRepository must  be tester.productoCrudRepository");
     }
 
-    @Test
-    void GetAndSetProductoCrudRepository() {
-        // Arrange
-        ProductoCrudRepository productoCrudRepository = mock(ProductoCrudRepository.class);
 
-        // Act
-        tester.setProductoCrudRepository(productoCrudRepository);
-
-        // Act & Assert
-        assertEquals(productoCrudRepository, tester.getProductoCrudRepository(), "setProductoCrudRepository must  be mock(ProductoCrudRepository.class)");
-    }
-
-    @Test
-    void GetAndSetMapper() {
-        // Arrange
-        ProductMapper productMapper = mock(ProductMapper.class);
-
-        // Act
-        tester.setMapper(productMapper);
-
-        // Act & Assert
-        assertEquals(productMapper, tester.getMapper(), "setMapper must  be mock(ProductMapper.class)");
-    }
 }

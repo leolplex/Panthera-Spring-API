@@ -5,6 +5,7 @@ import com.panthera.market.domain.repository.ProductRepository;
 import com.panthera.market.persistence.crud.ProductoCrudRepository;
 import com.panthera.market.persistence.entity.Producto;
 import com.panthera.market.persistence.mapper.ProductMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,24 +14,11 @@ import java.util.Optional;
 @Repository
 public class ProductoRepository implements ProductRepository {
 
+    @Autowired
     private ProductoCrudRepository productoCrudRepository;
+    @Autowired
     private ProductMapper mapper;
 
-    public ProductoCrudRepository getProductoCrudRepository() {
-        return productoCrudRepository;
-    }
-
-    public void setProductoCrudRepository(ProductoCrudRepository productoCrudRepository) {
-        this.productoCrudRepository = productoCrudRepository;
-    }
-
-    public ProductMapper getMapper() {
-        return mapper;
-    }
-
-    public void setMapper(ProductMapper mapper) {
-        this.mapper = mapper;
-    }
 
     @Override
     public List<Product> getAll() {
@@ -40,7 +28,7 @@ public class ProductoRepository implements ProductRepository {
 
     @Override
     public Optional<List<Product>> getByCategory(int categoryId) {
-        List<Producto> productos = productoCrudRepository.findByIdCategoriaByNombreAsc(categoryId);
+        List<Producto> productos = productoCrudRepository.findByIdCategoriaOrderByNombreAsc(categoryId);
         return Optional.of(mapper.toProducts(productos));
     }
 
