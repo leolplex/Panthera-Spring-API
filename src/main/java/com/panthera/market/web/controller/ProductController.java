@@ -14,6 +14,11 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
+    ProductController(ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/all")
     public List<Product> getAll() {
         return productService.getAll();

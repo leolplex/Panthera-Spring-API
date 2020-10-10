@@ -13,6 +13,11 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+
+    ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
     public List<Product> getAll() {
         return productRepository.getAll();
     }
@@ -36,13 +41,5 @@ public class ProductService {
         }).orElse(false);
     }
 
-    /*public boolean delete(int productId) {
-        if (getProduct(productId).isPresent()) {
-            productRepository.delete(productId);
-            return true;
-        } else {
-            return false;
-        }
-    }*/
 
 }
