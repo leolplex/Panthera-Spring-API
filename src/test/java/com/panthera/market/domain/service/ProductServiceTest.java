@@ -1,10 +1,12 @@
 package com.panthera.market.domain.service;
 
+import com.panthera.market.domain.Category;
 import com.panthera.market.domain.Product;
 import com.panthera.market.domain.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -12,13 +14,15 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductServiceTest {
+    @Autowired
+    private ProductRepository productRepository;
 
     ProductService tester;
 
     @BeforeEach
     void initEach() {
         // Arrange
-        ProductRepository productRepository = Mockito.mock(ProductRepository.class);
+        productRepository = Mockito.mock(ProductRepository.class);
         tester = new ProductService(productRepository);
     }
 
@@ -43,7 +47,27 @@ class ProductServiceTest {
     }
 
     @Test
-    void delete() {
+    void deleteFalse() {
         assertFalse(tester.delete(1), "delete must be false");
+    }
+
+    @Test
+    void deleteTrue() {
+        Category category = new Category();
+        category.setActive(true);
+        category.setCategoryId(1);
+        category.setCategoryName("legumbres");
+        Product product = new Product();
+        product.setProductId(1);
+        product.setActive(true);
+        product.setCategory(category);
+        product.setCategoryId(1);
+        product.setName("remolacha");
+        product.setStock(10);
+        product.setPrice(10);
+        Optional<Product> optionalProduct = Optional.of(product);
+        Mockito.when(productRepository.getProduct(1)).thenReturn(optionalProduct);
+
+        assertTrue(tester.delete(1), "delete must be true");
     }
 }
