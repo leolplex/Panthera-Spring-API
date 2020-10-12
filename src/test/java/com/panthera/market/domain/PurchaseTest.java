@@ -28,7 +28,7 @@ class PurchaseTest {
         assertNull(tester.getPaymentMethod(), "getPaymentMethod must be Null");
         assertNull(tester.getComment(), "getComment must be Null");
         assertNull(tester.getState(), "getState must be Null");
-        assertNull(tester.getItem(), "getState must be Null");
+        assertNull(tester.getItems(), "getItems must be Null");
     }
 
     @Test
@@ -115,10 +115,10 @@ class PurchaseTest {
         final List<PurchaseItem> items = new ArrayList<>();
 
         //Act
-        tester.setItem(items);
-        final List<PurchaseItem> getItem = tester.getItem();
+        tester.setItems(items);
+        final List<PurchaseItem> getItems = tester.getItems();
 
         // Assert
-        assertEquals(items, getItem, "setItem must be new ArrayList<>()");
+        assertEquals(items, getItems, "setItems must be new ArrayList<>()");
     }
 }
