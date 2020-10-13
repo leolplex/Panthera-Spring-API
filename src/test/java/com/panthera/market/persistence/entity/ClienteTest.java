@@ -35,14 +35,14 @@ class ClienteTest {
     void getAndSetId() {
         // Arrange
         Cliente tester = new Cliente();
-        final int id = 100;
+        final String id = "myid";
 
         //Act
         tester.setId(id);
-        final int getId = tester.getId();
+        final String getId = tester.getId();
 
         // Assert
-        assertEquals(id, getId, "setId must be 100");
+        assertEquals(id, getId, "setId must be myid");
     }
 
     @Test
