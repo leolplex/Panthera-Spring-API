@@ -2,6 +2,7 @@ package com.panthera.market;
 
 import com.panthera.market.PantheraMarketApplication;
 import com.panthera.market.domain.service.ProductService;
+import com.panthera.market.persistence.crud.CompraCrudRepository;
 import com.panthera.market.persistence.crud.ProductoCrudRepository;
 import com.panthera.market.persistence.mapper.ProductMapper;
 import org.aspectj.lang.annotation.Before;
@@ -19,6 +20,9 @@ class PantheraMarketApplicationTests {
 
     @MockBean
     private ProductoCrudRepository productoCrudRepository;
+
+    @MockBean
+    private CompraCrudRepository compraCrudRepository;
 
     @Test
     void contextLoads() {
