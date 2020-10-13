@@ -43,7 +43,7 @@ class ProductServiceTest {
 
     @Test
     void save() {
-        assertNull(tester.save(new Product()), "save must be an instance of Product");
+        assertNull(tester.save(new Product()), "save must be Null");
     }
 
     @Test
