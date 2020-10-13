@@ -20,6 +20,11 @@ public class CompraRepository implements PurchaseRepository {
     @Autowired
     private PurchaseMapper mapper;
 
+    CompraRepository(CompraCrudRepository compraCrudRepository, PurchaseMapper mapper) {
+        this.compraCrudRepository = compraCrudRepository;
+        this.mapper = mapper;
+    }
+
     @Override
     public List<Purchase> getAll() {
         return mapper.toPurchases((List<Compra>) compraCrudRepository.findAll());
@@ -33,6 +38,7 @@ public class CompraRepository implements PurchaseRepository {
     @Override
     public Purchase save(Purchase purchase) {
         Compra compra = mapper.toCompra(purchase);
+        if (compra == null)  throw new IllegalArgumentException("Compra cannot be null");
         compra.getProductos().forEach(producto -> producto.setCompra(compra));
         return mapper.toPurchase(compraCrudRepository.save(compra));
     }
