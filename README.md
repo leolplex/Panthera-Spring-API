@@ -13,12 +13,14 @@
 
 ## To the source code works you should:
  Create a file called at path src/main/resources/application.properties  and define the next properties:
+ 
     spring.profiles.active=[define_active_profile]
     server.servlet.context-path= [define_api_path]
  
  Create a file called at path src/main/resources/application-dev.properties  and define the next properties:
-  server.port=[define_port_to_use]
-  spring.datasource.url=[define_database_url]
-  spring.datasource.username=[define_database_username]
-  spring.datasource.password=[define_password_username]
+ 
+    server.port=[define_port_to_use]
+    spring.datasource.url=[define_database_url]
+    spring.datasource.username=[define_database_username]
+    spring.datasource.password=[define_password_username]
  
