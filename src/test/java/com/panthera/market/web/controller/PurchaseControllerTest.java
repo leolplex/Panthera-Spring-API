@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PurchaseControllerTest {
+class PurchaseControllerTest {
 
     @Autowired
     private PurchaseService purchaseService;
