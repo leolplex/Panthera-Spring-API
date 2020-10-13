@@ -15,7 +15,7 @@
  Create a file called at path src/main/resources/application.properties  and define the next properties:
  
     spring.profiles.active=[define_active_profile]
-    server.servlet.context-path= [define_api_path]
+    server.servlet.context-path=[define_api_path]
  
  Create a file called at path src/main/resources/application-dev.properties  and define the next properties:
  
