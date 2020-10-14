@@ -94,9 +94,10 @@ class JWTUtilTest {
             tester.isTokenExpire("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
         } catch (ExpiredJwtException e) {
 
-            LocalDateTime localDateTimeNow = LocalDateTime.now(ZoneOffset.UTC);
+            // LocalDateTime localDateTimeNow = LocalDateTime.now(ZoneOffset.UTC);
             LocalDateTime dateUtc = dateLocalTime.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
-            long diff = ChronoUnit.SECONDS.between(dateUtc, localDateTimeNow);
+            System.out.println(dateUtc);
+            long diff = ChronoUnit.SECONDS.between(dateUtc, LocalDateTime.now());
 
             // Assert
             assertThat(e.getMessage(), CoreMatchers.containsString("a difference of " + diff));
