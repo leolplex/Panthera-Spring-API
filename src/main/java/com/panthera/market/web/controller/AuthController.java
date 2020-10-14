@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -35,7 +37,9 @@ public class AuthController {
 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
             UserDetails userDetails = pantheraUserDetailService.loadUserByUsername(request.getUsername());
-            String jwt = jwtUtil.generateToken(userDetails);
+            Date dateNow = new Date();
+            Date dateExpiration = new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10);
+            String jwt = jwtUtil.generateToken(userDetails, dateNow, dateExpiration);
             return new ResponseEntity<>(new AuthenticationResponse(jwt), HttpStatus.OK);
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);

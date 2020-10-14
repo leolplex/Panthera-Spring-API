@@ -12,10 +12,10 @@ import java.util.Date;
 public class JWTUtil {
     private static final String KEY = "Ph4nth3r4";
 
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(UserDetails userDetails, Date dateNow, Date dateExpiration) {
         return Jwts.builder().setSubject(userDetails.getUsername())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
+                .setIssuedAt(dateNow) // new Date()
+                .setExpiration(dateExpiration) // new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)
                 .signWith(SignatureAlgorithm.HS256, KEY).compact();
     }
 
