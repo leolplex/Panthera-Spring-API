@@ -32,6 +32,7 @@ public class AuthController {
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
+
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
             UserDetails userDetails = pantheraUserDetailService.loadUserByUsername(request.getUsername());
             String jwt = jwtUtil.generateToken(userDetails);
