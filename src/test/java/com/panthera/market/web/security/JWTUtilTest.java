@@ -88,20 +88,16 @@ class JWTUtilTest {
         // Arrange
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime dateLocalTime = LocalDateTime.parse("2020-10-14 11:44:33", formatter);
+        LocalDateTime dateUtc = dateLocalTime.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
 
         try {
             // Act
             tester.isTokenExpire("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
         } catch (ExpiredJwtException e) {
 
-            // LocalDateTime localDateTimeNow = LocalDateTime.now(ZoneOffset.UTC);
-            LocalDateTime dateUtc = dateLocalTime.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
-            System.out.println(dateUtc);
-            long diff = ChronoUnit.SECONDS.between(dateUtc, LocalDateTime.now());
-
+            System.out.println(e.getMessage());
             // Assert
-            assertThat(e.getMessage(), CoreMatchers.containsString("a difference of " + diff));
-
+            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at " + dateUtc));
         }
     }
 
