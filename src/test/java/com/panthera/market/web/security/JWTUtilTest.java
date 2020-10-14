@@ -10,6 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -82,13 +86,18 @@ class JWTUtilTest {
 
     @Test
     void tokenIsExpire() {
+        // Arrange
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        LocalDateTime dateLocalTime = LocalDateTime.parse("2020-10-14 11:44:33", formatter);
+
         try {
             // Act
             tester.isTokenExpire("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
         } catch (ExpiredJwtException e) {
 
+            long diff = ChronoUnit.SECONDS.between(dateLocalTime, LocalDateTime.now());
             // Assert
-            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at 2020-10-14T16:44:33Z"));
+            assertThat(e.getMessage(), CoreMatchers.containsString("a difference of " + diff));
 
         }
     }
