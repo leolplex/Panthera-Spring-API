@@ -86,9 +86,9 @@ class JWTUtilTest {
             // Act
             tester.isTokenExpire("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
         } catch (ExpiredJwtException e) {
-            System.out.println(e.getMessage());
+
             // Assert
-            assertThat(e.getMessage(), CoreMatchers.containsString("2020-10-14T11:44:33Z"));
+            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at 2020-10-14T16:44:33Z"));
 
         }
     }
