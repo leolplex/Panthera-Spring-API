@@ -10,10 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.TimeZone;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,19 +87,16 @@ class JWTUtilTest {
 
     @Test
     void tokenIsExpire() {
-        // Arrange
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime dateLocalTime = LocalDateTime.parse("2020-10-14 11:44:33", formatter);
-        LocalDateTime dateUtc = dateLocalTime.atZone(ZoneId.systemDefault()).withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
-
         try {
             // Act
             tester.isTokenExpire("eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
         } catch (ExpiredJwtException e) {
 
-            System.out.println(e.getMessage());
+            DateTimeFormatter dtf = DateTimeFormatter.ISO_DATE_TIME;
+            ZonedDateTime zdt = ZonedDateTime.parse("2020-10-14T11:44:33Z", dtf);
+
             // Assert
-            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at " + dateUtc));
+            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at " + zdt));
         }
     }
 
