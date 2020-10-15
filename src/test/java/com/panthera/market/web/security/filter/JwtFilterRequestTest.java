@@ -112,7 +112,7 @@ class JwtFilterRequestTest {
         String passwordEncode = passwordEncoder.encode("panthera");
         UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
 
-        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn("Empty");
+        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn(null);
 
         // Act
         tester.doFilterInternal(request, response, filterChain);
