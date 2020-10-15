@@ -53,7 +53,7 @@ class JwtFilterRequestTest {
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
         filterChain = new MockFilterChain();
-        tokenMock = mockGenerateToken("Daniel", dateNow, dateExpiration);
+        tokenMock = "Bearer " + mockGenerateToken("Daniel", dateNow, dateExpiration);
         tokenWithOutBearer = tokenMock.substring(7);
     }
 
