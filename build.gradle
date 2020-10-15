@@ -9,7 +9,6 @@ plugins {
 
 group = 'com.panthera'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 sonarqube {
 	properties {
@@ -17,6 +16,7 @@ sonarqube {
 		property "sonar.organization", "leolplex"
 		property "sonar.projectVersion", "1.0.0"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.coverage.exclusions", "**/*PantheraMarketApplication.java"
 	}
 }
 
