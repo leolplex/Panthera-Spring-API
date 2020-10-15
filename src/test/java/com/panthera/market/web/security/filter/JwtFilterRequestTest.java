@@ -69,7 +69,7 @@ class JwtFilterRequestTest {
     @Test
     void doFilterInternalWithValidRequest() throws ServletException, IOException {
         // Arrange
-        request.addHeader("Authorization", "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI2OTM4NjksImV4cCI6MTYwMjY5Mzg3M30.ITqc1b9xU4Cn64sJ7oqfi9UKP5NXm4O1lS1iYcH48io");
+        request.addHeader("Authorization", tokenWithOutBearer);
 
         // Act
         tester.doFilterInternal(request, response, filterChain);
