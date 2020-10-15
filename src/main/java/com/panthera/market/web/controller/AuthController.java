@@ -31,6 +31,13 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
+
+    public AuthController(AuthenticationManager authenticationManager, PantheraUserDetailService pantheraUserDetailService, JWTUtil jwtUtil) {
+        this.authenticationManager = authenticationManager;
+        this.pantheraUserDetailService = pantheraUserDetailService;
+        this.jwtUtil = jwtUtil;
+    }
+
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> createToken(@RequestBody AuthenticationRequest request) {
         try {
