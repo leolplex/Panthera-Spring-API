@@ -144,6 +144,7 @@ class JwtFilterRequestTest {
         Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn("Daniel");
         Mockito.when((pantheraUserDetailService.loadUserByUsername("Daniel"))).thenReturn(userDetails);
         Mockito.when((jwtUtil.validateToken(tokenWithOutBearer, userDetails))).thenReturn(false);
+
         // Act
         tester.doFilterInternal(request, response, filterChain);
 
@@ -167,7 +168,30 @@ class JwtFilterRequestTest {
         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
         SecurityContextHolder.getContext().setAuthentication(authToken);
 
-        // Act
+        // Act False&&False
+        tester.doFilterInternal(request, response, filterChain);
+
+        // Assert
+        assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
+
+    }
+
+    @Test
+    void doFilterInternalWithNameSecurityContext() throws ServletException, IOException {
+        // Arrange
+        request.addHeader("Authorization", tokenMock);
+        request.setRequestURI("/products/all");
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncode = passwordEncoder.encode("panthera");
+        UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
+
+        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn("Daniel");
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        // Act False&&False
         tester.doFilterInternal(request, response, filterChain);
 
         // Assert
