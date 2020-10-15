@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "01bbb647-b945-4dff-848c-e744ecbc59ff",
+		"name": "Panthera-Market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "/products/all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/products/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"products",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/{Id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/products/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"products",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/category/{categoryId}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/products/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"products",
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n        \"name\": \"Kiwi\",\r\n        \"categoryId\": 1,\r\n        \"price\": 100.0,\r\n        \"stock\": 10,\r\n        \"active\": true       \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/products/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"products",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/products/delete/{Id}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/products/delete/51",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"products",
+								"delete",
+								"51"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "/auth/authenticate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Daniel\",\r\n    \"password\":\"panthera\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/auth/authenticate/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"auth",
+								"authenticate",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "purchase",
+			"item": [
+				{
+					"name": "/purchases/all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/purchases/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"purchases",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/purchases/{Id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/purchases/4546221",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"purchases",
+								"4546221"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/purchases/save",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{        \r\n        \"clientId\": \"4546221\",\r\n        \"date\": \"2020-09-10T17:30:00\",\r\n        \"paymentMethod\": \"E\",\r\n        \"comment\": \"\",\r\n        \"state\": \"P\",\r\n        \"items\": [\r\n            {\r\n                \"productId\": 49,\r\n                \"quantity\": 2,\r\n                \"total\": 16400.0,\r\n                \"active\": true\r\n            },\r\n            {\r\n                \"productId\": 36,\r\n                \"quantity\": 1,\r\n                \"total\": 40000.0,\r\n                \"active\": true\r\n            }     \r\n        ]\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/panthera/api/purchases/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"panthera",
+								"api",
+								"purchases",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"variable": [
+		{
+			"id": "f4963244-f61a-4874-803a-f3372f0e3d1b",
+			"key": "Authorization",
+			"value": "Authorization"
+		},
+		{
+			"id": "e8589901-6276-4392-ab57-641786304ffd",
+			"key": "Token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJEYW5pZWwiLCJpYXQiOjE2MDI3OTI2NTIsImV4cCI6MTYwMjgyODY1Mn0.BKObn42lXUXUtSmkcNpZJ5xl6552jpXJKU5rm7heVX4"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
