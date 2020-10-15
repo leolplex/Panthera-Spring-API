@@ -4,6 +4,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.impl.DefaultClaims;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -21,31 +22,29 @@ public class JWTUtil {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-
-        System.out.println("Variable A: " + userDetails.getUsername().equals(extractUsername(token)));
-        System.out.println("Variable B: " + !isTokenExpire(token));
-
         return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
-
     }
 
     public String extractUsername(String token) {
-        try {
-            return getClaims(token).getSubject();
-        } catch (ExpiredJwtException e) {
-            return e.getMessage();
-        }
+
+        return getClaims(token).getSubject();
+
     }
 
     public boolean isTokenExpire(String token) {
         try {
             return getClaims(token).getExpiration().before(new Date());
-        } catch (ExpiredJwtException e) {
-            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 
     private Claims getClaims(String token) {
-        return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
+        try {
+            return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
+        } catch (ExpiredJwtException e) {
+            return new DefaultClaims();
+        }
+
     }
 }
