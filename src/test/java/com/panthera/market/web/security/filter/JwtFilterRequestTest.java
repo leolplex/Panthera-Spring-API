@@ -101,6 +101,50 @@ class JwtFilterRequestTest {
 
     }
 
+
+    @Test
+    void doFilterInternalWithInvalidUserName() throws ServletException, IOException {
+        // Arrange
+        request.addHeader("Authorization", tokenMock);
+        request.setRequestURI("/products/all");
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncode = passwordEncoder.encode("panthera");
+        UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
+
+        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn("Empty");
+
+        // Act
+        tester.doFilterInternal(request, response, filterChain);
+
+        // Assert
+        assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
+
+    }
+
+    @Test
+    void doFilterInternalWithInvalidToken() throws ServletException, IOException {
+        // Arrange
+        request.addHeader("Authorization", tokenMock);
+        request.setRequestURI("/products/all");
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncode = passwordEncoder.encode("panthera");
+        UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
+
+        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn("Daniel");
+        Mockito.when((pantheraUserDetailService.loadUserByUsername("Daniel"))).thenReturn(userDetails);
+        Mockito.when((jwtUtil.validateToken(tokenWithOutBearer, userDetails))).thenReturn(false);
+        // Act
+        tester.doFilterInternal(request, response, filterChain);
+
+        // Assert
+        assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
+
+    }
+
+
+
     private String mockGenerateToken(String username, Date dateNow, Date dateExpiration) {
         return Jwts.builder().setSubject(username)
                 .setIssuedAt(dateNow)
