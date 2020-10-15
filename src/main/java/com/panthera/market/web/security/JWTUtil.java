@@ -1,6 +1,7 @@
 package com.panthera.market.web.security;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,8 +21,11 @@ public class JWTUtil {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-        return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
-
+        try {
+            return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
+        } catch (ExpiredJwtException e) {
+            return false;
+        }
     }
 
     public String extractUsername(String token) {
@@ -29,7 +33,11 @@ public class JWTUtil {
     }
 
     public boolean isTokenExpire(String token) {
-        return getClaims(token).getExpiration().before(new Date());
+        try {
+            return getClaims(token).getExpiration().before(new Date());
+        } catch (ExpiredJwtException e) {
+            return false;
+        }
     }
 
     private Claims getClaims(String token) {
