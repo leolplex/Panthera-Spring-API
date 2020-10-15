@@ -4,6 +4,7 @@ import com.panthera.market.domain.service.PantheraUserDetailService;
 import com.panthera.market.web.security.JWTUtil;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -58,6 +59,11 @@ class JwtFilterRequestTest {
         filterChain = new MockFilterChain();
         tokenMock = "Bearer " + mockGenerateToken("Daniel", dateNow, dateExpiration);
         tokenWithOutBearer = tokenMock.substring(7);
+    }
+
+    @AfterEach
+    void finishEach(){
+        SecurityContextHolder.clearContext();
     }
 
     @Test
