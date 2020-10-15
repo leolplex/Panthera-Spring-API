@@ -1,24 +1,16 @@
 package com.panthera.market.web.controller;
 
-import com.panthera.market.domain.Product;
 import com.panthera.market.domain.dto.AuthenticationRequest;
-import com.panthera.market.domain.dto.AuthenticationResponse;
 import com.panthera.market.domain.service.PantheraUserDetailService;
-import com.panthera.market.domain.service.ProductService;
 import com.panthera.market.web.security.JWTUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.ArrayList;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

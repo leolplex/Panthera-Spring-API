@@ -1,19 +1,13 @@
 package com.panthera.market.persistence;
 
 import com.panthera.market.domain.Purchase;
-import com.panthera.market.domain.PurchaseItem;
 import com.panthera.market.persistence.crud.CompraCrudRepository;
 import com.panthera.market.persistence.entity.Compra;
-import com.panthera.market.persistence.entity.ComprasProducto;
-import com.panthera.market.persistence.entity.ComprasProductoPK;
-import com.panthera.market.persistence.entity.Producto;
 import com.panthera.market.persistence.mapper.PurchaseMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.boot.test.system.OutputCaptureRule;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

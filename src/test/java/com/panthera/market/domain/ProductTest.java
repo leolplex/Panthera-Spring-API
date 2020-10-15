@@ -1,6 +1,5 @@
 package com.panthera.market.domain;
 
-import com.panthera.market.persistence.entity.Categoria;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

@@ -26,6 +26,11 @@ public class JwtFilterRequest extends OncePerRequestFilter {
     @Autowired
     private PantheraUserDetailService pantheraUserDetailService;
 
+    public JwtFilterRequest(JWTUtil jwtUtil, PantheraUserDetailService pantheraUserDetailService) {
+        this.jwtUtil = jwtUtil;
+        this.pantheraUserDetailService = pantheraUserDetailService;
+    }
+
     @Override
     public void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         String authorizationHeader = request.getHeader("Authorization");
@@ -47,3 +52,4 @@ public class JwtFilterRequest extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 }
+

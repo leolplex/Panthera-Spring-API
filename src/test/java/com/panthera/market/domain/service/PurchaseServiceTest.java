@@ -1,7 +1,6 @@
 package com.panthera.market.domain.service;
 
 
-import com.panthera.market.domain.Product;
 import com.panthera.market.domain.Purchase;
 import com.panthera.market.domain.repository.PurchaseRepository;
 import org.junit.jupiter.api.BeforeEach;
