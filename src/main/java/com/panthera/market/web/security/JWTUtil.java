@@ -22,16 +22,11 @@ public class JWTUtil {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-
-
         if (!isTokenExpire(token)) {
             return userDetails.getUsername().equals(extractUsername(token));
         } else {
             return false;
         }
-
-
-        //return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
     }
 
     public String extractUsername(String token) {
