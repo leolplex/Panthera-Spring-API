@@ -79,6 +79,7 @@ class JwtFilterRequestTest {
 
     }
 
+
     @Test
     void doFilterInternalWithValidRequestAndContainBearer() throws ServletException, IOException {
         // Arrange
