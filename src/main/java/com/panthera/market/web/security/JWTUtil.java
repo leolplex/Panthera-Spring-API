@@ -21,22 +21,27 @@ public class JWTUtil {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-        try {
-            return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
-        } catch (ExpiredJwtException e) {
-            return false;
-        }
+
+        System.out.println("Variable A: " + userDetails.getUsername().equals(extractUsername(token)));
+        System.out.println("Variable B: " + !isTokenExpire(token));
+
+        return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
+
     }
 
     public String extractUsername(String token) {
-        return getClaims(token).getSubject();
+        try {
+            return getClaims(token).getSubject();
+        } catch (ExpiredJwtException e) {
+            return e.getMessage();
+        }
     }
 
     public boolean isTokenExpire(String token) {
         try {
             return getClaims(token).getExpiration().before(new Date());
         } catch (ExpiredJwtException e) {
-            return false;
+            return true;
         }
     }
 

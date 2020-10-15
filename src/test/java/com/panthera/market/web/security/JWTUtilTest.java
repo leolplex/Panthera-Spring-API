@@ -72,7 +72,7 @@ class JWTUtilTest {
     void validateTokenFalseExpired() {
         // Arrange
         Date dateExpired = new Date(System.currentTimeMillis());
-        final String tokenMock = mockGenerateToken(userDetails.getUsername(), dateNow, dateExpired);
+        final String tokenMock = mockGenerateToken(null, dateNow, dateExpired);
         boolean isValid = tester.validateToken(tokenMock, userDetails);
         assertFalse(isValid, "validateToken must be false");
 
