@@ -45,7 +45,7 @@ class JWTUtilTest {
     }
 
     @Test
-    void validateToken() {
+    void validateTokenTrue() {
         // Arrange
         final String tokenMock = mockGenerateToken(userDetails.getUsername(), dateNow, dateExpiration);
 
@@ -54,6 +54,34 @@ class JWTUtilTest {
 
         // Assert
         assertTrue(isValid, "validateToken must be true");
+    }
+
+    @Test
+    void validateTokenFalse() {
+        // Arrange
+        final String tokenMock = mockGenerateToken(null, dateNow, dateExpiration);
+
+        // Act
+        boolean isValid = tester.validateToken(tokenMock, userDetails);
+
+        // Assert
+        assertFalse(isValid, "validateToken must be false");
+    }
+
+    @Test
+    void validateTokenFalseExpired() {
+        // Arrange
+        Date dateExpired = new Date(System.currentTimeMillis());
+        final String tokenMock = mockGenerateToken(userDetails.getUsername(), dateNow, dateExpired);
+
+        try {
+            // Act
+            boolean isValid = tester.validateToken(tokenMock, userDetails);
+        } catch (ExpiredJwtException e) {
+
+            // Assert
+            assertThat(e.getMessage(), CoreMatchers.containsString("JWT expired at"));
+        }
     }
 
     @Test
