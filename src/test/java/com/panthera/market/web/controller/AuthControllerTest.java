@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
@@ -48,6 +50,17 @@ class AuthControllerTest {
 
         AuthenticationRequest authenticationRequest = Mockito.mock(AuthenticationRequest.class);
         assertEquals(HttpStatus.OK, tester.createToken(authenticationRequest).getStatusCode(), "createToken must be OK");
+    }
+
+    @Test
+    void createTokenBadRequest() {
+
+        AuthenticationRequest authenticationRequest = Mockito.mock(AuthenticationRequest.class);
+        authenticationRequest.setUsername("mymock");
+        authenticationRequest.setPassword("mypass");
+        Mockito.when(authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword())))
+                .thenThrow(new BadCredentialsException("bad"));
+        assertEquals(HttpStatus.FORBIDDEN, tester.createToken(authenticationRequest).getStatusCode(), "createToken must be OK");
     }
 
 
