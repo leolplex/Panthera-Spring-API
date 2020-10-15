@@ -22,7 +22,16 @@ public class JWTUtil {
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
-        return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
+
+
+        if (!isTokenExpire(token)) {
+            return userDetails.getUsername().equals(extractUsername(token));
+        } else {
+            return false;
+        }
+
+
+        //return userDetails.getUsername().equals(extractUsername(token)) && !isTokenExpire(token);
     }
 
     public String extractUsername(String token) {
@@ -35,7 +44,7 @@ public class JWTUtil {
         try {
             return getClaims(token).getExpiration().before(new Date());
         } catch (Exception e) {
-            return false;
+            return true;
         }
     }
 
@@ -43,8 +52,11 @@ public class JWTUtil {
         try {
             return Jwts.parser().setSigningKey(KEY).parseClaimsJws(token).getBody();
         } catch (ExpiredJwtException e) {
+
             return new DefaultClaims();
         }
 
     }
 }
+
+
