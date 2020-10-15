@@ -12,9 +12,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockFilterChain;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -142,6 +145,31 @@ class JwtFilterRequestTest {
         assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
 
     }
+
+    @Test
+    void doFilterInternalWithSecurityContext() throws ServletException, IOException {
+        // Arrange
+        request.addHeader("Authorization", tokenMock);
+        request.setRequestURI("/products/all");
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncode = passwordEncoder.encode("panthera");
+        UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
+
+        Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn(null);
+        UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        SecurityContextHolder.getContext().setAuthentication(authToken);
+
+        // Act
+        tester.doFilterInternal(request, response, filterChain);
+
+        // Assert
+        assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
+
+    }
+
+
 
 
 
