@@ -93,7 +93,6 @@ class JwtFilterRequestTest {
     void doFilterInternalWithValidRequestAndContainBearer() throws ServletException, IOException {
         // Arrange
         request.addHeader("Authorization", tokenMock);
-        request.setRequestURI("/products/all");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String passwordEncode = passwordEncoder.encode("panthera");
@@ -115,11 +114,6 @@ class JwtFilterRequestTest {
     void doFilterInternalWithInvalidUserName() throws ServletException, IOException {
         // Arrange
         request.addHeader("Authorization", tokenMock);
-        request.setRequestURI("/products/all");
-
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String passwordEncode = passwordEncoder.encode("panthera");
-        UserDetails userDetails = new User("Daniel", passwordEncode, new ArrayList<>());
 
         Mockito.when(jwtUtil.extractUsername(tokenWithOutBearer)).thenReturn(null);
 
@@ -132,10 +126,9 @@ class JwtFilterRequestTest {
     }
 
     @Test
-    void doFilterInternalWithInvalidToken() throws ServletException, IOException {
+    void doFilterInternalWithvalidateTokenFalse() throws ServletException, IOException {
         // Arrange
         request.addHeader("Authorization", tokenMock);
-        request.setRequestURI("/products/all");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String passwordEncode = passwordEncoder.encode("panthera");
@@ -154,10 +147,9 @@ class JwtFilterRequestTest {
     }
 
     @Test
-    void doFilterInternalWithSecurityContext() throws ServletException, IOException {
+    void doFilterInternalWithSecurityContextAndWithoutUserName() throws ServletException, IOException {
         // Arrange
         request.addHeader("Authorization", tokenMock);
-        request.setRequestURI("/products/all");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String passwordEncode = passwordEncoder.encode("panthera");
@@ -177,10 +169,9 @@ class JwtFilterRequestTest {
     }
 
     @Test
-    void doFilterInternalWithNameSecurityContext() throws ServletException, IOException {
+    void doFilterInternalWithUserNameAndSecurityContext() throws ServletException, IOException {
         // Arrange
         request.addHeader("Authorization", tokenMock);
-        request.setRequestURI("/products/all");
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String passwordEncode = passwordEncoder.encode("panthera");
@@ -198,8 +189,6 @@ class JwtFilterRequestTest {
         assertEquals(HttpStatus.OK.value(), response.getStatus(), "httpServletResponse.getStatus() must be Ok");
 
     }
-
-
 
 
 
