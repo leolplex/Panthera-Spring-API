@@ -56,17 +56,6 @@ class JWTUtilTest {
         assertTrue(isValid, "validateToken must be true");
     }
 
-    @Test
-    void validateTokenFalse() {
-        // Arrange
-        final String tokenMock = mockGenerateToken(null, dateNow, dateExpiration);
-
-        // Act
-        boolean isValid = tester.validateToken(tokenMock, userDetails);
-
-        // Assert
-        assertFalse(isValid, "validateToken must be false");
-    }
 
     @Test
     void validateTokenFalseDateExpiredUserError() {
