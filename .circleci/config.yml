@@ -95,6 +95,6 @@ workflows:
             - build
       - deploy:
           context: Heroku
-            requires:
-              - test
-              - code_quality_sonar
+          requires:
+            - test
+            - code_quality_sonar
