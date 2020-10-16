@@ -31,4 +31,14 @@
     spring.datasource.url=[define_database_url]
     spring.datasource.username=[define_database_username]
     spring.datasource.password=[define_password_username]
+    
+## Useful commands
+
+    heroku login
+    heroku create [app_name]
+    heroku addons:create heroku-postgresql
+    heroku config
+    git push heroku master
+    
+ [Panthera API](https://pantheramarket.herokuapp.com/)
  
