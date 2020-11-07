@@ -25,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/all")
-    @ApiOperation("Get all supermarket products")
+    @ApiOperation("Get all supermarket products 11/06/2020")
     @ApiResponse(code = 200, message = "ok")
     public ResponseEntity<List<Product>> getAll() {
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
