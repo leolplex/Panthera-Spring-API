@@ -34,7 +34,7 @@ class AuthenticationRequestTest {
         final String getUsername = tester.getUsername();
 
         // Assert
-        assertEquals(username, getUsername, "setUsername must be mockusername");
+        assertEquals(username, getUsername, "getUsername must be mockusername");
     }
 
     @Test
@@ -47,6 +47,6 @@ class AuthenticationRequestTest {
         final String getPassword = tester.getPassword();
 
         // Assert
-        assertEquals(password, getPassword, "setPassword must be mockpassword");
+        assertEquals(password, getPassword, "getPassword must be mockpassword");
     }
 }
